@@ -8,17 +8,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#00BCD4"
         android:padding="16dp">
 
         <EditText
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:hint="Title" />
 
         <EditText
             android:id="@+id/etDescription"
             android:layout_width="match_parent"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:hint="Description" />
 
@@ -26,18 +29,21 @@
             android:id="@+id/etStartDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Start Date" />
+            android:textColor="@color/white"
+            android:hint="Fecha inicial " />
 
         <EditText
             android:id="@+id/etEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="End Date" />
+            android:textColor="@color/white"
+            android:hint="Fecha final" />
 
         <EditText
             android:id="@+id/etImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:hint="Image URL" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,5 +53,16 @@
             android:layout_gravity="end"
             android:src="@android:drawable/ic_menu_save" />
 
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:src="@android:drawable/ic_menu_delete" />
+
     </LinearLayout>
+
+
+
 </ScrollView>

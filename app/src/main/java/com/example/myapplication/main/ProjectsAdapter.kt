@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 
-class ProjectsAdapter : RecyclerView.Adapter<ProjectsAdapter.ProjectViewHolder>() {
+class ProjectsAdapter(private val onProjectClick: (ProjectEntity) -> Unit) : RecyclerView.Adapter<ProjectsAdapter.ProjectViewHolder>() {
 
     private val projects = mutableListOf<ProjectEntity>()
 
@@ -31,9 +31,13 @@ class ProjectsAdapter : RecyclerView.Adapter<ProjectsAdapter.ProjectViewHolder>(
 
     override fun onBindViewHolder(holder: ProjectViewHolder, position: Int) {
         holder.bind(projects[position])
+        holder.itemView.setOnClickListener {
+            onProjectClick(projects[position])
+        }
     }
 
     override fun getItemCount() = projects.size
+
 
     class ProjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val title: TextView = itemView.findViewById(R.id.tvTitle)

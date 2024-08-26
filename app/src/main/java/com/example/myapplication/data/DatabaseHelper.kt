@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.myapplication.data.Dao.ProjectDao
+import com.example.myapplication.data.dao.ProjectDao
 import com.example.myapplication.data.entity.ProjectEntity
 import com.example.myapplication.utils.Converters
 
