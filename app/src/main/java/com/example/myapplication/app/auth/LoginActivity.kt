@@ -1,17 +1,20 @@
-package com.example.myapplication.auth
+package com.example.myapplication.app.auth
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.myapplication.databinding.ActivityLoginBinding
-import com.example.myapplication.main.MainActivity
-import com.example.myapplication.viewmodel.LoginViewModel
+import com.example.myapplication.app.main.MainActivity
+import com.example.myapplication.app.viewmodels.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import androidx.activity.viewModels
-
+import com.squareup.picasso.Picasso
 
 
 class LoginActivity : AppCompatActivity() {
@@ -24,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        setupBackground()
         setupObservers()
 
         binding.btnLogin.setOnClickListener {
@@ -44,6 +47,22 @@ class LoginActivity : AppCompatActivity() {
                 Log.d("LoginActivity", "Register button clicked with email: $email")
             }
         }
+    }
+
+    private fun setupBackground() {
+        val backgroundUrl = "https://img.freepik.com/vector-premium/fondo-abstracto-puntos-semitono_444390-12787.jpg?w=2000"
+
+        Picasso.get().load(backgroundUrl).into(object : com.squareup.picasso.Target {
+            override fun onBitmapLoaded(bitmap: Bitmap, from: Picasso.LoadedFrom) {
+                binding.loginLayout.background = BitmapDrawable(binding.root.resources, bitmap)
+            }
+
+            override fun onBitmapFailed(e: Exception, errorDrawable: Drawable?) {
+            }
+
+            override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
+            }
+        })
     }
 
     private fun setupObservers() {
